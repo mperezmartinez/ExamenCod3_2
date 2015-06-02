@@ -18,11 +18,24 @@ public class Calculo {
     public Calculo() {
     }
 
+    public String validar(int numero){
+        if (numero < 0) {
+            mensajeResultado = "Error, los números no pueden ser negativos";
+        } 
+        else if (numero>0){
+         mensajeResultado = "Cálculo correcto";   
+        }
+        return mensajeResultado;
+    }
+    
+    
     //setters
     public void setNumero1(int numero) {
         this.numero1 = numero;
         //si el número es negativo cambiamos a cero y
         //establecemos la propiedad "mensajeResultado" a "Error"
+        
+        
         if (numero < 0) {
             mensajeResultado = "Error, los números no pueden ser negativos";
         }
