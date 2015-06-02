@@ -17,26 +17,25 @@ import static org.junit.Assert.*;
  * @author Miguel
  */
 public class CalculoTest {
-    
+
     public CalculoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-
 
     /**
      * Test of obtenerMCD method, of class Calculo.
@@ -51,5 +50,5 @@ public class CalculoTest {
         int result = instance.obtenerMCD(num1, num2);
         assertEquals(expResult, result);
     }
-    
+
 }

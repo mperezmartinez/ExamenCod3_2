@@ -10,7 +10,7 @@ package examencod3_2;
  * @author Miguel
  */
 public class Calculo {
-    
+
     private int numero1;
     private int numero2;
     private String mensajeResultado = "";
@@ -18,36 +18,39 @@ public class Calculo {
     public Calculo() {
     }
 
-    public String validar(int numero){
+    public String validar(int numero) {
         if (numero < 0) {
             mensajeResultado = "Error, los números no pueden ser negativos";
-        } 
-        else if (numero>0){
-         mensajeResultado = "Cálculo correcto";   
+        } else if (numero > 0) {
+            mensajeResultado = "Cálculo correcto";
+        } else {
+            mensajeResultado = "Error en cálculo de MCD: ";
         }
         return mensajeResultado;
     }
-    
-    
+
     //setters
     public void setNumero1(int numero) {
         this.numero1 = numero;
         //si el número es negativo cambiamos a cero y
         //establecemos la propiedad "mensajeResultado" a "Error"
-        
-        
-        if (numero < 0) {
-            mensajeResultado = "Error, los números no pueden ser negativos";
-        }
+        mensajeResultado = this.validar(numero);
+
+//        if (numero < 0) {
+//            mensajeResultado = "Error, los números no pueden ser negativos";
+//        }
     }
 
     public void setNumero2(int numero) {
         this.numero2 = numero;
         //si el número es negativo cambiamos a cero y
         //establecemos la propiedad "mensajeResultado" a "Error"
-        if (numero < 0) {
-            mensajeResultado = "Error, los números no pueden ser negativos";
-        }
+
+        mensajeResultado = this.validar(numero);
+
+//        if (numero < 0) {
+//            mensajeResultado = "Error, los números no pueden ser negativos";
+//        }
     }
 
     //resultado del cálculo del MCD
@@ -71,9 +74,11 @@ public class Calculo {
         int resto;
         int numDiv1 = num1;
         int numDiv2 = num2;
-        
-        if (num1 <0 || num2 < 0) return 0;
-       
+
+        if (num1 < 0 || num2 < 0) {
+            return 0;
+        }
+
         try {
             do {
                 resto = numDiv1 % numDiv2;
@@ -83,10 +88,10 @@ public class Calculo {
                 }
             } while (resto != 0);
 
-            mensajeResultado = "Cálculo correcto";
+            this.validar(numDiv2);
             return numDiv2;
         } catch (Exception e) {
-            mensajeResultado = "Error en cálculo de MCD: " + e.getMessage();
+            mensajeResultado = this.validar(numDiv2) + e.getMessage();
             return 0;
         }
     }
